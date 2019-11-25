@@ -170,7 +170,7 @@ Caveats:
 ===============================================================================
 
 Requirements:
-	- SKSE 2.0.16
+	- SKSE 2.0.17
 	- SkyUI SE
 
 ===============================================================================
@@ -178,6 +178,10 @@ Requirements:
 --------
 Changes:
 --------
+2.0.8 (SE only)
+	- Fixed issue with MCM menu not loading on new saves.
+	- Thanks to SSyl for the assistance!
+
 2.0.7 (SE only)
 	- Updated for SKSE 2.0.17 / Runtime 1.5.97
 	- Changed display of Damage Taken text on options screen to percentage instead of decimals.

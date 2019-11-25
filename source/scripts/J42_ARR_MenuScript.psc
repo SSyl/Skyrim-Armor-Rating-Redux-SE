@@ -23,35 +23,10 @@ string version
 string[] modes
 string[] formulas
 
-; Supported SKSE64 Version.
-Int ARRSKSE64Version = 20017
-
 Int Function GetVersion()
 	;99999 == 9.99.99
-	return 20007
+	return 20008
 EndFunction
-
-Event OnInit() ; This event will run once, when the script is initialized
-	OnGameReload()
-EndEvent
- 
-Event OnGameReload()			
-	if (SKSE.GetVersionRelease() == 0)
-		debug.Notification(ModName+": SKSE64 is not running. Mod will not work!")
-		debug.Trace(self+": SKSE not detected")
-		return
-
-	elseIf (SKSE.GetVersion() * 10000 + SKSE.GetVersionMinor() * 100 + SKSE.GetVersionBeta() != ARRSKSE64Version)
-		debug.Notification(ModName+": Mod will not work correctly!")
-		debug.MessageBox("Armor Rating Redux will not work correctly!\nWrong SKSE64 version:" \
-		 +"\nRequired version: " + ARRSKSE64Version/10000+"."+(ARRSKSE64Version/100)%100+"."+ARRSKSE64Version%100 \
-		 +"\nDetected version: "+SKSE.GetVersion()+"."+SKSE.GetVersionMinor()+"."+SKSE.GetVersionBeta())
-		debug.Trace(self+": Wrong SKSE64 version. Armor Rating Redux will not work correctly! Required version: 2.0.17 Detected version:"  + SKSE.GetVersion() + "." + SKSE.GetVersionMinor() + "." + SKSE.GetVersionBeta())
-		
-		return
-	endif
-
-EndEvent
 
 Event OnVersionUpdate(Int ver)
 	version = ver/10000+"."+(ver/100)%100+"."+ver%100
@@ -68,14 +43,13 @@ EndEvent
 
 
 Event OnConfigInit()
-	debug.Notification(ModName+": LOADING...")
-	debug.Trace(self+": LOADING...")
+	debug.Notification(ModName+": MCM LOADING...")
+	debug.Trace(self+": MCM LOADING...")
 EndEvent
 
 Event OnConfigRegister()
-
-	debug.Notification(ModName+": OK!")
-	debug.Trace(self+": OK!")
+	debug.Notification(ModName+": MCM Loaded!")
+	debug.Trace(self+": MCM Loaded!")
 	
 	pages = new string[1]
 	pages[0] = "$J42_ARR_Title_General"
