@@ -1,4 +1,4 @@
-Armor Rating Redux 2.0.5 SE
+Armor Rating Redux 2.0.6 SE
 by DaJay42 on NexusMods.com
 
 ===============================================================================
@@ -170,7 +170,7 @@ Caveats:
 ===============================================================================
 
 Requirements:
-	- SKSE 2.0.15
+	- SKSE 2.0.16
 	- SkyUI SE
 
 ===============================================================================
@@ -178,8 +178,14 @@ Requirements:
 --------
 Changes:
 --------
+2.0.6 (SE only)
+	- Updated for SKSE 2.0.16 / Runtime 1.5.80
+	- Thanks to SSyl for the assistance!
+
 2.0.5 (SE only)
 	- Updated for SKSE 2.0.15 / Runtime 1.5.73
+	- Thanks to SSyl for the assistance!
+		
 2.0.4 (SE only)
 	- Updated for SKSE 2.0.11 / Runtime 1.5.62
 		
@@ -250,13 +256,14 @@ Permissions/License/Credits:
 The SE version of the mod contains code by locerra, without whom this port 
 would not have been possible. Many thanks!
 Additional assistance was provided by hotemup. Thanks to you, too!
+Update 1.0.5 was done in part by SSyl. Thanks!
 
 The original mod contains code from Armor Rating Rescaled by underthesky:
 http://www.nexusmods.com/skyrim/mods/85358/
 Used under permission as stated on that mod's page.
 (Once again, a huge thank you for that!)
 
-Written by DaJay42, nexusmods.com, 2016-2018.
+Written by DaJay42, nexusmods.com, 2016-2019.
 Software provided as-is, with no warranty.
 For personal use only.
 Re-uploads, uploads to other sites or uploads of derivative works are allowed 

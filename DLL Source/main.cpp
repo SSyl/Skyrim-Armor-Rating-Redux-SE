@@ -378,7 +378,7 @@ extern "C"	{
 		// populate info structure
 		info->infoVersion =	PluginInfo::kInfoVersion;
 		info->name =		"J42_ARR_plugin";
-		info->version =		20005;
+		info->version =		20006;
 
 		// store plugin handle so we can identify ourselves later
 		g_pluginHandle = skse->GetPluginHandle();
@@ -393,7 +393,8 @@ extern "C"	{
 		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_50)
 		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_53)
 		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_62)
-		else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_73)
+		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_73)
+		else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_80)
 		{
 			_ERROR("Unsupported runtime version %08X.", skse->runtimeVersion);
 

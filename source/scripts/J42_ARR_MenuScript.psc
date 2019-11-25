@@ -25,7 +25,7 @@ string[] formulas
 
 Int Function GetVersion()
 	;99999 == 9.99.99
-	return 20005
+	return 20006
 EndFunction
 
 Event OnVersionUpdate(Int ver)
@@ -48,6 +48,7 @@ Event OnConfigInit()
 EndEvent
 
 Event OnConfigRegister()
+
 	debug.Notification(ModName+": OK!")
 	debug.Trace(self+": OK!")
 	
