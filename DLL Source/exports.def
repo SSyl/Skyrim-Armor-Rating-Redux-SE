@@ -1,0 +1,4 @@
+LIBRARY	"J42_ARR_plugin"
+EXPORTS
+SKSEPlugin_Query
+SKSEPlugin_Load
