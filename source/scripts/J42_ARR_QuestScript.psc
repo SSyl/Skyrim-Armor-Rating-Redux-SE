@@ -134,12 +134,18 @@ Event OnInit()
 	Maintenance()
 EndEvent
 
+Int Function GetSupportedSkseReleaseVersion()
+	{This must match the #define SKSE_VERSION_RELEASEIDX
+	in "...\src\skse64\skse64_common\skse_version.h"}
+	return 64
+EndFunction
+
 Function Maintenance()
 	UnregisterForUpdate()
 	
 	PlayerRef.removeSpell(J42_ARR_ARDisplaySpell)
 	
-	If SKSE.GetScriptVersionRelease() >= 58
+	If SKSE.GetScriptVersionRelease() == GetSupportedSkseReleaseVersion()
 		Game.SetGameSettingFloat(hiddenRating, 0.0)
 		Game.SetGameSettingFloat(dmgMult, defaultMult*100.0)
 		Game.SetGameSettingFloat(dmgFloor, 9223372013568.0)
@@ -168,7 +174,7 @@ Function Maintenance()
 			RegisterForSingleUpdate(timer)
 		EndIf
 	Else
-		printf("FATAL ERROR - Bad SKSE Version!", true)
+		printf("FATAL ERROR - Unsupported SKSE Version!", true)
 		J42_ARR_ErrorBox.show()
 	EndIf
 EndFunction
@@ -249,9 +255,9 @@ EndFunction
 
 Function printf(string asMsg, bool abNotif = false)
 	If abNotif
-		debug.Notification("Armor Rating Redux: " + asMsg)
+		Debug.Notification("Armor Rating Redux: " + asMsg)
 	EndIf
-	debug.Trace(self +": "+ asMsg)
+	Debug.Trace(self +": "+ asMsg)
 EndFunction
 
 Function StatusReport()
