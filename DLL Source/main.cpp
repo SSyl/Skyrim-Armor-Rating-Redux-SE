@@ -215,9 +215,16 @@ const UInt8 kDamageResistInject2Bytes[] = {
 	0xc0, 0x44, 0x0f, 0x2f, 0xc1, 0x72, 0x04, 0x44, 0x0f, 0x28, 0xc1
 };
 */
+/* Version 1.5.80
 const RelocAddr<uintptr_t> kDamageResistInject2Address(0x00624FA2);
 const UInt8 kDamageResistInject2Bytes[] = {
 	0xf3, 0x0f, 0x10, 0x0d, 0x32, 0xd0, 0xf1, 0x00, 0xf3, 0x44, 0x0f, 0x58,
+	0xc0, 0x44, 0x0f, 0x2f, 0xc1, 0x72, 0x04, 0x44, 0x0f, 0x28, 0xc1
+};
+*/
+const RelocAddr<uintptr_t> kDamageResistInject2Address(0x00624FA2);
+const UInt8 kDamageResistInject2Bytes[] = {
+	0xf3, 0x0f, 0x10, 0x0d, 0x22, 0xd0, 0xf1, 0x00, 0xf3, 0x44, 0x0f, 0x58,
 	0xc0, 0x44, 0x0f, 0x2f, 0xc1, 0x72, 0x04, 0x44, 0x0f, 0x28, 0xc1
 };
 
@@ -378,7 +385,7 @@ extern "C"	{
 		// populate info structure
 		info->infoVersion =	PluginInfo::kInfoVersion;
 		info->name =		"J42_ARR_plugin";
-		info->version =		20006;
+		info->version =		20007;
 
 		// store plugin handle so we can identify ourselves later
 		g_pluginHandle = skse->GetPluginHandle();
@@ -394,7 +401,8 @@ extern "C"	{
 		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_53)
 		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_62)
 		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_73)
-		else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_80)
+		//else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_80)
+		else if (skse->runtimeVersion != RUNTIME_VERSION_1_5_97)
 		{
 			_ERROR("Unsupported runtime version %08X.", skse->runtimeVersion);
 

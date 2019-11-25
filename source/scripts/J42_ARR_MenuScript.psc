@@ -23,10 +23,35 @@ string version
 string[] modes
 string[] formulas
 
+; Supported SKSE64 Version.
+Int ARRSKSE64Version = 20017
+
 Int Function GetVersion()
 	;99999 == 9.99.99
-	return 20006
+	return 20007
 EndFunction
+
+Event OnInit() ; This event will run once, when the script is initialized
+	OnGameReload()
+EndEvent
+ 
+Event OnGameReload()			
+	if (SKSE.GetVersionRelease() == 0)
+		debug.Notification(ModName+": SKSE64 is not running. Mod will not work!")
+		debug.Trace(self+": SKSE not detected")
+		return
+
+	elseIf (SKSE.GetVersion() * 10000 + SKSE.GetVersionMinor() * 100 + SKSE.GetVersionBeta() != ARRSKSE64Version)
+		debug.Notification(ModName+": Mod will not work correctly!")
+		debug.MessageBox("Armor Rating Redux will not work correctly!\nWrong SKSE64 version:" \
+		 +"\nRequired version: " + ARRSKSE64Version/10000+"."+(ARRSKSE64Version/100)%100+"."+ARRSKSE64Version%100 \
+		 +"\nDetected version: "+SKSE.GetVersion()+"."+SKSE.GetVersionMinor()+"."+SKSE.GetVersionBeta())
+		debug.Trace(self+": Wrong SKSE64 version. Armor Rating Redux will not work correctly! Required version: 2.0.17 Detected version:"  + SKSE.GetVersion() + "." + SKSE.GetVersionMinor() + "." + SKSE.GetVersionBeta())
+		
+		return
+	endif
+
+EndEvent
 
 Event OnVersionUpdate(Int ver)
 	version = ver/10000+"."+(ver/100)%100+"."+ver%100
@@ -121,18 +146,18 @@ Event OnPageReset(string page)
 		;right side
 		SetCursorPosition(1)
 		AddHeaderOption("$J42_ARR_Title_DamageTaken")
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+50+"}",J42_ARR_MainQuest.Calculate(50), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+100+"}",J42_ARR_MainQuest.Calculate(100), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+200+"}",J42_ARR_MainQuest.Calculate(200), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+300+"}",J42_ARR_MainQuest.Calculate(300), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+400+"}",J42_ARR_MainQuest.Calculate(400), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+500+"}",J42_ARR_MainQuest.Calculate(500), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+667+"}",J42_ARR_MainQuest.Calculate(667), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+800+"}",J42_ARR_MainQuest.Calculate(800), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+1000+"}",J42_ARR_MainQuest.Calculate(1000), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+1500+"}",J42_ARR_MainQuest.Calculate(1500), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+2000+"}",J42_ARR_MainQuest.Calculate(2000), "{5}", OPTION_FLAG_DISABLED)
-		AddSliderOption("$J42_ARR_Info_At_X_AR{"+5000+"}",J42_ARR_MainQuest.Calculate(5000), "{5}", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+50+"}",J42_ARR_MainQuest.Calculate(50)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+100+"}",J42_ARR_MainQuest.Calculate(100)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+200+"}",J42_ARR_MainQuest.Calculate(200)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+300+"}",J42_ARR_MainQuest.Calculate(300)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+400+"}",J42_ARR_MainQuest.Calculate(400)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+500+"}",J42_ARR_MainQuest.Calculate(500)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+667+"}",J42_ARR_MainQuest.Calculate(667)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+800+"}",J42_ARR_MainQuest.Calculate(800)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+1000+"}",J42_ARR_MainQuest.Calculate(1000)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+1500+"}",J42_ARR_MainQuest.Calculate(1500)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+2000+"}",J42_ARR_MainQuest.Calculate(2000)*100, "{2}%", OPTION_FLAG_DISABLED)
+		AddSliderOption("$J42_ARR_Info_At_X_AR{"+5000+"}",J42_ARR_MainQuest.Calculate(5000)*100, "{2}%", OPTION_FLAG_DISABLED)
 	Endif
 	
 EndEvent

@@ -178,6 +178,11 @@ Requirements:
 --------
 Changes:
 --------
+2.0.7 (SE only)
+	- Updated for SKSE 2.0.17 / Runtime 1.5.97
+	- Changed display of Damage Taken text on options screen to percentage instead of decimals.
+	- Thanks to SSyl for the assistance!
+
 2.0.6 (SE only)
 	- Updated for SKSE 2.0.16 / Runtime 1.5.80
 	- Thanks to SSyl for the assistance!
