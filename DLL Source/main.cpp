@@ -385,7 +385,7 @@ extern "C"	{
 		// populate info structure
 		info->infoVersion =	PluginInfo::kInfoVersion;
 		info->name =		"J42_ARR_plugin";
-		info->version =		20007;
+		info->version =		20008;
 
 		// store plugin handle so we can identify ourselves later
 		g_pluginHandle = skse->GetPluginHandle();
